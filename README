@@ -1,7 +1,12 @@
+
+# NN_classifier is the working dir.
+# ex4.R is main script (sourced other scripts in NN folde)
+
 install.packages('lbfgsb3')
-project_wd = 'path_for_this_project_folder'
+project_wd = 'path_NN_folder'
 setwd(project_wd)
 
+###
 change :
 =
 sigmoid function
