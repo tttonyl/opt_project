@@ -1,0 +1,8 @@
+install.packages('lbfgsb3')
+project_wd = 'path_for_this_project_folder'
+setwd(project_wd)
+
+change :
+=
+sigmoid function
+lbfgsb3 or lbfgsb3_r
