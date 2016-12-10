@@ -1,4 +1,4 @@
-randInitializeWeights <- function(L_in, L_out) {
+randInitializeWeights <- function(L_in, L_out, seed) {
   #RANDINITIALIZEWEIGHTS Randomly initialize the weights of a layer with L_in
   #incoming connections and L_out outgoing connections
   #   W <- RANDINITIALIZEWEIGHTS(L_in, L_out) randomly initializes the weights
@@ -20,7 +20,7 @@ randInitializeWeights <- function(L_in, L_out) {
   #
   
   epsilon_init <- 0.12
-  
+  set.seed(seed)
   rnd <- runif(L_out * (1 + L_in))
   rnd <- matrix(rnd,L_out,1 + L_in)
   W <- rnd * 2 * epsilon_init - epsilon_init
