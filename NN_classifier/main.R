@@ -12,9 +12,9 @@ for (i in 1:length(sources)) {
 
 
 input_layer_size  <- 784  # 28x28 Input Images of Digits
-hidden_layer_size <- 30   # 25 hidden units
-num_labels <- 10          # 10 labels, from 1 to 10
-                          # mapped "0" 3to label 10
+hidden_layer_size <- 30   # 30 hidden units
+num_labels <- 1          # 10 labels, from 1 to 10
+                          # mapped "0" to label 10
 
 
 
@@ -22,7 +22,7 @@ num_labels <- 10          # 10 labels, from 1 to 10
 load('train_dat.Rda')
 list2env(train_dat,.GlobalEnv)
 rm(train_dat)
-
+y = as.matrix(ifelse(y == 1, 1, 0))
 m <- dim(X)[1]
 
 
@@ -67,12 +67,14 @@ Theta2 <- matrix(nn_params[(1 + (hidden_layer_size * (input_layer_size + 1))):le
 
 pred <- predict(Theta1, Theta2, X)
 
+
 cat(sprintf('\nTraining Set Accuracy: %f\n', mean(pred==y)))
 
 
 load('test_dat.Rda')
 list2env(test_dat,.GlobalEnv)
 pred <- predict(Theta1, Theta2, X)
+y = as.matrix(ifelse(y == 1, 1, 0))
 cat(sprintf('\nTesting Set Accuracy: %f\n', mean(pred==y)))
 
 

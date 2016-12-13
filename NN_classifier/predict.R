@@ -7,8 +7,9 @@ predict <- function(Theta1, Theta2, X) {
   
   h1 <- sigmoid(cbind(rep(1,m),X) %*% t(Theta1))
   h2 <- sigmoid(cbind(rep(1,m),h1) %*% t(Theta2))
+  h2 >= 0.5
   
-  p <- apply(h2,1,which.max)
-  p
+  # p <- apply(h2,1,which.max)
+  # p
 
 }
